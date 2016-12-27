@@ -1,0 +1,80 @@
+<ion-side-menus enable-menu-with-back-views="false">
+  <ion-side-menu-content drag-content="false">
+    <ion-nav-bar class="bar-stable" style="display: block !important;">
+      <ion-nav-back-button>
+      </ion-nav-back-button>
+
+      <ion-nav-buttons side="left">
+        <button class="button button-icon button-clear ion-navicon" menu-toggle="left">
+        </button>
+      </ion-nav-buttons>
+    </ion-nav-bar>
+    <ion-nav-view name="menuContent"></ion-nav-view>
+  </ion-side-menu-content>
+
+  <ion-side-menu side="left">
+    <ion-header-bar class="bar-stable top_left_head" style="border: medium none;">
+    <!-- <div class="top_main_con">
+      	<h1 class="title" style="text-align: left;font-size: 31px;">Client Name</h1>
+		<span>client@domain.com</span>
+    </div> -->
+    <div class="top_main_con top_ios1">
+        <h1 class="title" style="text-align: left;font-size: 31px;">{{clientName}}</h1>
+    <span>{{loginData.email}}</span>
+    </div> 
+    </ion-header-bar>
+    <ion-content class="menuListContent top_left_bottom sidemenucontent">
+      <ion-list>
+       <!--  <ion-item menu-close class="br_tp_none" href="#/app/dashtestlist"> -->
+       <!--  <ion-item menu-close class="br_tp_none" ui-sref="app.testlist" ui-sref-opts="{reload: true}"> -->
+        <ion-item menu-close class="br_tp_none home_menu" ng-click="gotoHome()">
+        <span class="img-col"><img src="img/home.png"/></span>
+        <span class="content1"> Home</span>
+        <span class="count">{{pucount| customNumber}}</span>
+        </ion-item>
+        <ion-item menu-close ui-sref="addcontact" ui-sref-opts="{reload: true}">
+        <span class="img-col"><img src="img/dchec.png"/></span>
+        <span class="content2">  New Dcheck</span>      
+        </ion-item>
+        <ion-item menu-close ui-sref="app.grouplist" ui-sref-opts="{reload: true}">
+        <span class="img-col"><img src="img/group.png"/></span>
+        <span class="content1">   Groups </span>
+        <span class="count">{{groupsCount| customNumber}}</span>
+        </ion-item>
+        <!-- <ion-item menu-close ui-sref="addcontact" ui-sref-opts="{reload: true}">
+         <span class="img-col"><img src="img/home.png"/></span>
+        <span class="content1">History</span>
+        <span class="count">5</span>
+        </ion-item>
+        <ion-item menu-close ui-sref="grouplistchecked" ui-sref-opts="{reload: true}">
+        <span class="img-col"><img src="img/profile.png"/></span>
+        <span class="content2">TestHistory</span>
+        </ion-item> -->
+        <!-- <ion-item menu-close ui-sref="new1">
+          New1
+        </ion-item>
+        <ion-item menu-close ui-sref="new2">
+          New2
+        </ion-item> -->
+        
+        <!-- <ion-item menu-close ui-sref="grouplistchecked" ui-sref-opts="{reload: true}"> -->
+        <ion-item menu-close ui-sref="app.settings" ui-sref-opts="{reload: true}">
+         <span class="img-col"><img src="img/setting.png"/></span>
+        <span class="content2">Settings</span>
+        </ion-item>
+        <ion-item menu-close class="tc_menu ">
+         <span class="img-col"><img src="img/t&c.png"/></span>
+         <span class="content2" ng-click="getTermcondtions()">Terms and conditions</span>
+        <!-- <span class="content2" onclick="window.open(TERMSANDCONDITIONS, '_blank', 'location=yes,toolbar=yes'); return false;">Terms and conditions</span>  -->
+        
+        </ion-item>
+        <ion-item menu-close ng-click="logout()">
+          <div class="tbl_100">
+            <span class="img-col"><img src="img/logout.png"/></span>
+            <span class="content2">Logout</span>
+          </div>
+        </ion-item>
+      </ion-list>
+    </ion-content>
+  </ion-side-menu>
+</ion-side-menus>

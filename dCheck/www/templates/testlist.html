@@ -1,0 +1,119 @@
+<ion-view title="Tests" class="list-view">
+    <ion-header-bar align-title="left" class="list-page">
+        <div class="buttons">
+        	<i class="icon ion-chevron-left testlistBack" ui-sref="app.testlist" ui-sref-opts="{reload: true}"></i>
+        </div> 
+    	<h1 class="title title1">TEST</h1>
+        <div class="buttons">
+        	<i class="icon ion-plus testlistheaderbtn"></i>
+        </div>
+    </ion-header-bar>
+    <div class="bar bar-subheader padding-0 top-head">
+    	<div class = "tabs list-tab" ng-show="showtabs">
+            <a class = "tab-item" ng-click="showFilterBarName()">Names</a>
+		    <a class = "tab-item" ng-click="showFilterBarTag()">Tags</a>
+            <span class="refine">
+                        <img src="img/sort.png" alt=""/>
+                    </span>
+            
+            <!-- <a class = "tab-item" ng-click="showFilterBarCompany()">Company</a>-->
+    	</div>
+        <div class="search-bar" ng-show="showname">
+        	<div class="row padding-0">
+            	<div class="col col-67 padding-0">
+                	<div class="list">
+                      <label class="">
+                        <i class="icon ion-search placeholder-icon"></i>
+                        <input type="text" placeholder="Find Leads" ng-model="searchname" ng-change="searchbyname(searchname)">
+                      </label>
+                    </div>
+                </div>
+                <div class="col col-33">
+                	<span class="tag-name" ng-click="hideSearch()">
+                    	Name
+                    </span>
+                    <span class="refine">
+                    	<img src="img/sort.png" alt=""/>
+                    </span>
+                </div>
+            </div>
+        </div>
+
+
+        <div class="search-bar" ng-show="showtags">
+            <div class="row padding-0">
+                <div class="col col-67 padding-0">
+                    <div class="list">
+                      <label class="">
+                        <i class="icon ion-search placeholder-icon"></i>
+                        <input type="text" placeholder="Find Leads" ng-model="tagname" ng-change="searchbytag(tagname)">
+                      </label>
+                    </div>
+                </div>
+                <div class="col col-33">
+                    <span class="tag-name" ng-click="hideSearch()">
+                        Tags
+                    </span>
+                    <span class="refine">
+                        <img src="img/sort.png" alt=""/>
+                    </span>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="alphabet-slider">
+        <ul class="alpha_sidebar">
+            <!-- <li ng-click="gotoList('index_{{letter}}')"ng-repeat="letter in alphabet" ng-class="{disabled : filter(letter)}"> 
+                {{letter}}
+            </li> -->
+            <li ng-repeat="letter in alphabet" ng-class="{disabled : filter(letter)}"> 
+                {{letter}}
+            </li>
+        </ul>
+    </div>
+    <ion-content class="testlistContent listing-content" overflow-scroll="true">
+        <div class="overlay-wrap overlay_pos">
+            <div class="top-content">
+            	<div data-ng-repeat="(letter, authors) in sorted_users " class="alpha_list" >
+            		<ion-item class="item item-divider" id="index_{{letter}}"> {{letter}}</ion-item>
+                    <ion-list show-delete="shouldShowDelete" show-reorder="shouldShowReorder" can-swipe="listCanSwipe">
+                        <ion-item ng-repeat="item in authors" class="item-thumbnail-left item-avatar testListOptionBtn listing-wrap">
+                            <img ng-src="{{item.photo}}">
+                            <h2>{{item.name}}</h2>
+                           <!--  <p class="designation"><span>{{item.designation}}</span><span class="pull-right"><i class="icons ion-chevron-right"></i></span></p> -->
+                            <p class="designation"><span>Coca Cola</span><span class="pull-right"><i class="icons ion-chevron-right"></i></span></p>
+                           <p><span class="tag-icon"><img src="img/tag.png" alt=''/></span>
+                            <!-- {{item.workfield}} -->
+                            <span ng-repeat="array in item.tags">{{array.title}} ,</span>
+                            </p>
+                            <ion-option-button class="button button-assertive center-btn" ng-click="share(item)"><i class="icons ion-trash-a"></i></ion-option-button>
+                            <ion-option-button class="button button-balanced center-btn" ng-click="edit(item)"><i class="icons ion-plus-round"></i></ion-option-button>
+                            <ion-delete-button class="ion-minus-circled" ng-click="items.splice($index, 1)"></ion-delete-button>
+                            <ion-reorder-button class="ion-navicon" on-reorder="reorderItem(item, $fromIndex, $toIndex)"></ion-reorder-button>
+                        </ion-item>
+                    </ion-list>
+            	</div>
+                 <ion-infinite-scroll on-infinite="loadMore()" distance="1%" ng-if="moreDataCanBeLoaded">
+                 </ion-infinite-scroll>
+            </div>
+            
+    </div>
+    <div class="overlay" ng-show="show_overlay">
+    </div>  
+    </ion-content>
+    
+    <!--<div class="list">
+    <a class="item item-avatar" href="#" ng-repeat="test in testlist">
+    <img ng-src="{{test.image}}">
+    <h2>{{test.name}}</h2>
+    <p>{{test.designation}}</p>
+    <p>{{test.workfield}}</p>
+    </a>
+    </div>
+    </ion-content>
+    <ul class="alpha_sidebar">
+    <li ng-click="gotoList('{{letter}}')"ng-repeat="letter in alphabet"> 
+    {{letter}}
+    </li>
+    </ul> -->
+</ion-view>

@@ -1,0 +1,40 @@
+<ion-header-bar class="bar-positive">
+      <div class="buttons">
+        <button class="button button-icon icon ion-ios-arrow-back" ui-sref="testlist"></button>
+      <h1 class="title">Test Details</h1>
+    
+      </div>
+    </ion-header-bar>
+
+    <ion-content>
+    <h1>Test Details</h1>
+
+    <ion-list 
+          show-delete="shouldShowDelete"
+          show-reorder="shouldShowReorder"
+          can-swipe="listCanSwipe">
+  <ion-item ng-repeat="item in items"
+            class="item-thumbnail-left">
+
+    <img ng-src="{{item.img}}">
+    <h2>{{item.title}}</h2>
+    <p>{{item.description}}</p>
+    <ion-option-button class="button-positive"
+                       ng-click="share(item)">
+      Share
+    </ion-option-button>
+    <ion-option-button class="button-info"
+                       ng-click="edit(item)">
+      Edit
+    </ion-option-button>
+    <ion-delete-button class="ion-minus-circled"
+                       ng-click="items.splice($index, 1)">
+    </ion-delete-button>
+    <ion-reorder-button class="ion-navicon"
+                        on-reorder="reorderItem(item, $fromIndex, $toIndex)">
+    </ion-reorder-button>
+
+  </ion-item>
+</ion-list>
+  </ion-content>
+</ion-view>

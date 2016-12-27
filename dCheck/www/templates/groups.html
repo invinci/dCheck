@@ -1,0 +1,104 @@
+<!--<ion-view view-title="Groups">
+	<ion-header-bar class="bar-stable" style="border: medium none;">
+      <h1 class="title">Groups</h1>
+      <span class="btn-grp">
+      	<button><i class="icons ion-plus"></i></button>
+        <button><i class="icons ion-search"></i></button>
+      </span>
+    </ion-header-bar>
+    <ion-content>
+        <div class="buttons">
+            <button class="button button-icon icon ion-ios-minus-outline"
+            ng-click="data.showDelete = !data.showDelete; data.showReorder = false"></button>
+            <button class="button button-icon icon ion-ios-plus-outline"
+            ng-click="modal.show()" style="float:right"></button>
+        </div>
+	    <!-- The list directive is great, but be sure to also checkout the collection repeat directive when scrolling through large lists -->
+    	<!--<ion-list show-delete="data.showDelete" show-reorder="data.showReorder">
+		    <ion-item ng-repeat="item in groups" item="item" ui-sref="groupDetails" class="item-remove-animate edit-list">
+                <h3>{{item.groupName}}</h3>
+                <p>{{item.Discription}}</p>
+                <ion-delete-button class="ion-minus-circled" 
+                ng-click="onItemDelete(item)">
+                </ion-delete-button>
+                <ion-option-button class="button-assertive"
+                ng-click="edit(item)">
+                <i class="icons ion-edit"></i>
+                </ion-option-button>
+                <ion-option-button class="button-calm"
+                ng-click="share(item)">
+                <i class="icons ion-forward"></i>
+                </ion-option-button>
+    			<ion-reorder-button class="ion-navicon" on-reorder="moveItem(item, $fromIndex, $toIndex)"></ion-reorder-button>
+    		</ion-item>
+   		 </ion-list>
+    </ion-content>
+    
+</ion-view>
+-->
+<ion-view title="Tests" class="list-view">
+    <ion-header-bar align-title="left">
+        <div class="buttons">
+        	<i class="icon ion-chevron-left testlistBack" ng-click="myGoBack()"></i>
+        </div> 
+    	<h1 class="title" style="text-align:center">Groups</h1>
+        <div class="buttons">
+        	<i class="icon ion-plus testlistheaderbtn"></i>
+        </div>
+        <div class="buttons">
+        	<i class="ion-ios-search-strong testlistheaderbtn"></i>
+        </div>
+    </ion-header-bar>
+    <div class="bar bar-subheader padding-0 top-head">
+    	<div class = "tabs list-tab">
+            <a class = "tab-item" ng-click="showFilterBar()">Names</a>
+		    <a class = "tab-item" ng-click="showFilterBarDesignation()">Tags</a>
+            <!-- <a class = "tab-item" ng-click="showFilterBarCompany()">Company</a> -->
+    	</div>
+    </div>
+    <ion-content class="testlistContent">
+    	<div data-ng-repeat="(letter, authors) in sorted_users " class="alpha_list" ui-sref="testDetails">
+    		<ion-item class="item item-divider" id="index_{{letter}}"> {{letter}}</ion-item>
+            <ion-list show-delete="shouldShowDelete" show-reorder="shouldShowReorder" can-swipe="listCanSwipe">
+                <ion-item ng-repeat="item in authors" class="item-thumbnail-left item-avatar testListOptionBtn listing-wrap">
+                    <img ng-src="{{item.image}}">
+                    <h2>{{item.name}}</h2>
+                    <p class="designation"><span>{{item.designation}}</span><span class="pull-right"><i class="icons ion-chevron-right"></i></span></p>
+                    <p><span class="tag-icon"><img src="../img/tag.png" alt=''/></span>{{item.workfield}}</p>
+                    <ion-option-button class="button button-assertive center-btn" ng-click="share(item)"><i class="icons ion-trash-a"></i></ion-option-button>
+                    <ion-option-button class="button button-balanced center-btn" ng-click="edit(item)"><i class="icons ion-plus-round"></i></ion-option-button>
+                    <ion-delete-button class="ion-minus-circled" ng-click="items.splice($index, 1)"></ion-delete-button>
+                    <ion-reorder-button class="ion-navicon" on-reorder="reorderItem(item, $fromIndex, $toIndex)"></ion-reorder-button>
+                </ion-item>
+            </ion-list>
+    	</div>
+    </ion-content>
+    <script id="templates/modal.html" type="text/ng-template">
+    <ion-modal-view>
+        <ion-header-bar class="bar bar-header bar-positive">
+            <h1 class="title">New Group</h1>
+            <button class="button button-clear button-primary" ng-click="modal.hide()">Cancel</button>
+        </ion-header-bar>
+        <ion-content class="padding">
+            <div class="list">
+                <label class="item item-input">
+                    <span class="input-label">Grpup Name</span>
+                    <input ng-model="newGroup.groupName" type="text">
+                </label>
+                <label class="item item-input">
+                    <span class="input-label">Discription</span>
+                    <input ng-model="newGroup.Discription" type="text">
+                </label>
+                <button class="button button-full button-positive" ng-click="createGroup(newGroup)">Create</button>
+            </div>
+        </ion-content>
+    </ion-modal-view>
+    </script>
+    <ul class="alpha_sidebar">
+    	<li ng-click="gotoList('index_{{letter}}')"ng-repeat="letter in alphabet"> 
+    		{{letter}}
+    	</li>
+    </ul>
+    
+</ion-view>
+

@@ -1,0 +1,82 @@
+<ion-view>
+	<ion-header-bar align-title="left" class="bar-positive">
+        <div class="buttons pull-right">
+        	<i class="icon ion-close margin-right" ui-sref="app.dashEmployee" ui-sref-opts="{reload: true}"></i>
+        </div>
+    </ion-header-bar>
+    <ion-content padding="false" scroll="true">
+    	<div class="static_page">
+        	<div class="row">
+            	<div class="col">
+                	<div class="side-logo">
+                    	<img src="img/logo1.png" alt="logo"/>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+            	<div class="col">
+                	<div class="user-image">
+                    	<img ng-src="{{userpic}}" alt=""/>
+                    </div>
+                </div>
+                <div class="col">
+                	<div class="bar-image">
+                    	<img ng-src="{{qr_codePath}}" alt=""/>
+
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+            	<div class="col">
+                	<div class="static-fields">
+                    	<p>First Name</p>
+                        <h6>{{pdfdata.name}}</h6>
+                    </div>
+                </div>
+                <div class="col">
+                	<div class="static-fields">
+                    	<p>Job</p>
+                        <h6>{{pdfdata.job}}</h6>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+            	<div class="col">
+                	<div class="static-fields">
+                    	<p>Email</p>
+                        <h6>{{pdfdata.email}}</h6>
+                    </div>
+                </div>
+           </div>
+           <div class="row">
+            	<div class="col">
+                	<div class="static-fields">
+                    	<p>Country</p>
+                        <h6>{{pdfdata.location}}</h6>
+                    </div>
+                </div>
+                <div class="col">
+                	<div class="static-fields">
+                    	<p>Postal Code</p>
+                        <h6>10001</h6>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+            	<div class="col">
+                	<div class="static-fields">
+                    	<p>Phone Number</p>
+                        <h6>{{pdfdata.phone_number}}</h6>
+                    </div>
+                </div>
+           </div>
+           <div class="row">
+            	<div class="col">
+                	<div class="product-image">
+                    	<img ng-src="{{testpic}}"  alt=""/>
+                    </div>
+                </div>
+           </div>
+        </div>
+    </ion-content>
+</ion-view>

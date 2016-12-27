@@ -1,0 +1,29 @@
+<ion-view title="Forget Password">
+      <ion-content padding="true" scroll="true" class="text-center forgotContents" >
+       <form name="login_form" id="login_form" class="list " >
+            <!--<div class="spacer-home"></div>-->
+            <div class="text-center">
+                <img class="logo-xl" src="img/logo-xl.png"  style="height: 261px;">
+            </div>
+            <div class="text-center">
+                <p style="color:#fff;">Enter the email address you registered with and we'll send you a link to reset your password.</p>
+            </div>
+            <div class="row-center padding login-fields-wrapper">
+                <!-- email Text box -->
+                <label  class="item item-input no-padding" ng-class="{'has-error':login_form.email.$invalid && (login_form.email.$error.required || !login_form.email.$pristine)}">
+                    <input type="email" ng-model="user.email" required name="email" ng-pattern="/^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/" placeholder="EMAIL">
+                </label>
+                <div class="form-error" ng-show="login_form.email.$invalid && !login_form.email.$pristine" >Enter a valid email.</div>
+                
+            </div>
+        </form>
+        <!--ui-sref="myAccount.help" -->
+        
+        <a ng-disabled="login_form.$invalid" class="button button-positive btn btn-md btntext" ng-click="ForgotPassword(user)">Submit</a>
+
+        <div class="spacer-bottom under-space "></div>
+        <div class="create-account text-center">
+            <a ui-sref="home" class="button button-block register-button btn btn-md" >Go Back</a>
+        </div>
+    </ion-content>
+</ion-view>

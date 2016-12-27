@@ -1,0 +1,55 @@
+<ion-view title="Settings" class="group-view">
+    
+   
+    <!-- <ion-nav-buttons side="right">
+        <button class="button  button-positive btnUpdate" ng-click="updateProfile(userDataforSetting)">
+            Update
+        </button>
+    </ion-nav-buttons> -->
+   
+    <ion-content class="settings">
+    <div class="list">
+        <div class="item item-divider">General</div>
+        <label class="item item-input item-stacked-label">
+            <span class="input-label">Name</span>
+            <input type="text" class="colordisable" placeholder="Client Name" ng-model="userDataforSetting.first_name" disabled>
+        </label>
+        <label class="item item-input item-stacked-label">
+            <span class="input-label">Email</span>
+            <input type="mail" class="colordisable" placeholder="client@domain.com" ng-model="userDataforSetting.email" disabled>
+        </label>
+        <label class="item item-input item-stacked-label">
+            <span class="input-label">Phone</span>
+            <input type="text" class="colordisable" placeholder="phone number" ng-model="userDataforSetting.phone_number" disabled>
+        </label>
+        <label class="item item-input item-stacked-label">
+            <span class="input-label">Country</span>
+            <input type="text" class="colordisable" ng-model="userDataforSetting.country" placeholder="January 12, 1976" disabled>
+        </label>
+        <div class="item item-divider">Notification</div>
+        <ul class="list toggle-wrap">
+          <li class="item item-toggle">
+             Email Notifications
+             <label class="toggle">
+               <input type="checkbox"  ng-model="userDataforSetting.email_notification" ng-change="emailnotificationchange(userDataforSetting.email_notification)">
+               <div class="track">
+                 <div class="handle"></div>
+               </div>
+             </label>
+          </li>
+          <li class="item item-toggle">
+             Phone Notifications
+             <label class="toggle">
+               <input type="checkbox" ng-model="userDataforSetting.push_notification" ng-change="phonenotificationchange(userDataforSetting.push_notification)">
+               <div class="track">
+                 <div class="handle"></div>
+               </div>
+             </label>
+          </li>
+       </ul>
+    </div>
+    </ion-content>
+    
+    
+</ion-view>
+

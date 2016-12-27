@@ -1,0 +1,93 @@
+<ion-view>
+
+    <ion-content padding="false" scroll="true" class="login-page">
+        <div class="login-wrap" id="loginWrap">
+            <div class="row">
+                <div class="col text-center">
+                    <div class="logo-wrap" id="wrap-logo">
+                        <img class="logo-xl" src="img/logo-xl.png" >
+                    </div>
+                    <div class="welcome-box" id="welcome-box">
+                        <h1>Welcome to D-check</h1>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="login-form" id="form-login">
+            <form name="login_form" id="login_form" class="list" ng-submit="loginUser(user);">
+                <div class="login-wrapper">
+                    <div class="list listLogin">
+
+                     <label class="item item-input item-stacked-label border-bottom" ng-class="{ 'has-errors' : login_form.email.$invalid && login_form.email.$dirty, 'no-errors' : login_form.email.$valid}">
+                        <span class="input-label">Email</span>
+                        <div class="input-wrap">
+                            <input type="email" id="emailLogin" ng-focus="onfocus()" ng-model="user.email" required name="email" ng-pattern="/^[_a-z0-9]+(\.[_a-z0-9]+)*@[a-z0-9-]+(\.[a-z0-9-]+)*(\.[a-z]{2,4})$/" placeholder="maria@pemex.com">
+                        </div>
+                      </label>
+                      <div class="error-container last-error-container" ng-show="login_form.email.$error && login_form.email.$dirty" ng-messages="login_form.email.$error">
+                                <div ng-messages-include="errorEmail-list.html"></div> 
+                            </div>
+                      <!-- <div class="form-error" ng-show="login_form.email.$invalid && !login_form.email.$pristine" style="text-align:center;color:rgb(183, 11, 11);">Please enter a valid email.
+                            </div>
+ -->
+                      
+                      
+                      <div class="item item-input item-stacked-label login_scr"  ng-class="{ 'has-errors' : login_form.password.$invalid && login_form.password.$dirty, 'no-errors' : login_form.password.$valid}">
+                        <label class="input-label">Password</label>
+                        <input type="{{inputType}}" id="passLogin" placeholder="Password" required ng-model="user.password" name="password" maxlength="16" ng-minlength="6">
+                        <div ng-click="hideShowPassword()"><img src="img/caution.png" alt="" style="height: 26px;margin-top: 8px;" /></div>
+                      </div>
+                        <div class="error-container last-error-container" ng-show="login_form.password.$error && login_form.password.$dirty" ng-messages="login_form.password.$error">
+                                <div ng-messages-include="errorPassword-list.html"></div> 
+                            </div>
+
+                    </div>
+                </div>
+                <button  ng-disabled="login_form.$invalid" class="button button-block" >Sign In</button>
+            </form>
+            <div class="text-center">
+                <a href="javascript:void(0)">Forgot Password?</a>
+            </div>
+       </div>
+    </ion-content>
+     <script id="errorPassword-list.html" type="text/ng-template">  
+       
+          <div class="error" ng-message="required">
+            <i class="ion-information-circled"></i> 
+            Password is required!
+          </div>
+          <div class="error" ng-message="minlength">
+            <i class="ion-information-circled"></i> 
+            Min length of Password is 6 characters!
+          </div>
+          <div class="error" ng-message="maxlength">
+            <i class="ion-information-circled"></i> 
+            Maxlength of Password is 16 characters!
+          </div>
+          
+    </script>
+    <script id="errorEmail-list.html" type="text/ng-template">  
+         <div class="error" ng-message="required">
+            <i class="ion-information-circled"></i> 
+            Email is required!
+          </div>
+        
+          <div class="error" ng-message="minlength">
+            <i class="ion-information-circled"></i> 
+            Minimum length of Email is 5 characters!
+          </div>
+          <div class="error" ng-message="maxlength">
+            <i class="ion-information-circled"></i> 
+            Maximum length of Email is 15 characters!
+          </div>
+          <div class="error" ng-message="email">
+            <i class="ion-information-circled"></i> 
+            Please enter a valid email address!
+         </div>
+         <div class="error" ng-message="pattern">
+            <i class="ion-information-circled"></i> 
+            Please enter a valid email address!
+         </div>
+         
+    </script> 
+</ion-view>
